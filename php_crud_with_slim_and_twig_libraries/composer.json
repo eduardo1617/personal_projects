@@ -1,0 +1,11 @@
+{
+    "require": {
+        "ramsey/uuid": "^4.2",
+        "slim/slim": "^4.10",
+        "twig/twig": "^3.0",
+        "slim/psr7": "^1.5",
+        "slim/twig-view": "^3.0",
+        "league/container": "^4.2",
+      "ext-pdo": "*"
+    }
+}

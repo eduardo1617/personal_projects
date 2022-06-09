@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Add user</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Hobbies</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for key,user in users %}
+    <tr>
+
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.hobbies|join('-') }}</td>
+        <td class="last">
+
+            <a class="link-button edit-button" href="/users/{{key}}">
+                Edit
+            </a>
+            <form action="/users/{{key}}" method="post">
+                <input name="_METHOD" type="hidden" value="DELETE">
+                <button class="submit" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
