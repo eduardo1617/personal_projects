@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/product/{{id}}" method="post" class="data-form">
+    <input type="hidden" name="_METHOD" value="PATCH">
+    <div>
+        <label><span> First Name: </span>
+            <input type="text" name="product_name" value="{{  products.product_name  }}">
+            {% if product is empty %}
+            <div class="errors">{{ errors.product }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Branch Office: </span>
+            <select name="categories">
+                {% for category in categories %}
+                <option
+                        {% if (products.category_id == category.id) %}
+                        selected
+                        {% endif %}
+                        value="{{ category.id }}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/product">Cancel</a>
+</form>
+{% endblock %}

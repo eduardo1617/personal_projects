@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/seller/report">Back</a>
+
+<h3>{{currentSeller.fullname}}</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Branch</th>
+        <th>Product</th>
+        <th>Date</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% set totalPrice = 0 %}
+    {% for seller in sellers %}
+    <tr>
+        <td>{{ seller.Branch }}</td>
+        <td>{{ seller.product_name }}</td>
+        <td>{{ seller.sale_date }}</td>
+        <td>{{ seller.quantity }}</td>
+        <td>C$ {{ seller.Total }}</td>
+        {% set totalPrice = totalPrice + seller.Total %}
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><span>Grand Total: </span></td>
+        <td>C$ {{ totalPrice }}</td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

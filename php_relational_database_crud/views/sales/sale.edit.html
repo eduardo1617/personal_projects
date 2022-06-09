@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/sale/{{id}}" method="post" class="data-form">
+    <input type="hidden" name="_METHOD" value="PATCH">
+    <div>
+        <label><span> Branch Office: </span>
+            <select name="branches">
+                {% for branch in branches %}
+
+                <option value="{{ branch.id }}">{{ branch.city }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label><span> Employee: </span>
+            <select name="employee">
+                {% for seller in sellers %}
+
+                <option value="{{ seller.id }}">{{ seller.seller_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label><span> Date: </span>
+            <input type="date" name="sale_date" value="{{  sales.sale_date  }}">
+            {% if sale.sale_date is empty %}
+            <div class="errors">{{ errors.sale_date }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Product: </span>
+            <select name="product">
+                {% for product in products %}
+
+                <option value="{{ product.id }}">{{ product.product_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label><span> Quantity: </span>
+            <input type="text" name="Quantity" value="{{  sales.amount  }}">
+            {% if sale.Quantity is empty %}
+            <div class="errors">{{ errors.Quantity }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Price: </span>
+            <input type="text" name="price" value="{{  sales.price  }}">
+            {% if sale.price is empty %}
+            <div class="errors">{{ errors.price }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Total: </span>
+            <input type="text" name="Total" value="{{  (sales.amount * sales.price)  }}">
+            {% if sale.Total is empty %}
+            <div class="errors">{{ errors.Total }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/sale">Cancel</a>
+</form>
+{% endblock %}

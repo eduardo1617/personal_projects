@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Seller</th>
+        <th>Work ID</th>
+        <th>Total Sold</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for seller in sellers %}
+    <tr>
+        <td>{{ seller.Seller }}</td>
+        <td>{{ seller.work_id }}</td>
+        <td>C$ {{ seller.TotalSold }}</td>
+        <td class="last">
+            <a class="link-button" href="/seller/report/{{ seller.id }}">
+                Show more
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/seller" method="post" class="data-form">
+    <div>
+        <label><span> First Name: </span>
+            <input type="text" name="first_name">
+            {% if first_name is empty %}
+            <div class="errors">{{ errors.first_name }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Last Name: </span>
+            <input type="text" name="last_name">
+            {% if last_name is empty %}
+            <div class="errors">{{ errors.last_name }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> DNI: </span>
+            <input type="text" name="dni">
+            {% if dni is empty %}
+            <div class="errors">{{ errors.dni }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Date of birth: </span>
+            <input type="date" name="birth_day" >
+            {% if birth_day is empty %}
+            <div class="errors">{{ errors.birth_day }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Hiring Date: </span>
+            <input type="date" name="hiring_date">
+            {% if hiring_date is empty %}
+            <div class="errors">{{ errors.hiring_date }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+<!--    <div>-->
+<!--        <label><span> Work id: </span>-->
+<!--            <input type="text" name="work_id">-->
+<!--            {% if work_id is empty %}-->
+<!--            <div class="errors">{{ errors.work_id }}</div>-->
+<!--            {% endif %}-->
+<!--        </label>-->
+<!--    </div>-->
+
+    <div>
+        <label><span> Phone: </span>
+            <input type="text" name="phone">
+            {% if phone is empty %}
+            <div class="errors">{{ errors.phone }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Branch Office: </span>
+            <select name="branches">
+                {% for branch in branches %}
+                    <option value="{{ branch.id }}">{{ branch.city }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/seller">Cancel</a>
+</form>
+{% endblock %}

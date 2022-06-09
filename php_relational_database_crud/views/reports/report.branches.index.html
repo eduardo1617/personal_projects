@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Branch Office</th>
+        <th>Total Sold</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for branch in branches %}
+    <tr>
+        <td>{{ branch.Branch }}</td>
+        <td>C$ {{ branch.TotalBranch }}</td>
+        <td class="last">
+            <a class="link-button" href="/branch/report/{{ branch.id }}">
+                Show more
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

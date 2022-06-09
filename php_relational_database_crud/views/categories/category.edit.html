@@ -1,0 +1,18 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/category/{{id}}" method="post" class="data-form">
+    <input type="hidden" name="_METHOD" value="PATCH">
+    <div>
+        <label><span> Category: </span>
+            <input type="text" name="category" value="{{  categories.category_name  }}">
+            {% if category is empty %}
+            <div class="errors">{{ errors.category }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/category">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/sale/create">Make Sale</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Branch</th>
+        <th>Employee</th>
+        <th>Date</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+<!--        <th>Actions</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    {% for sale in sales %}
+    <tr>
+        <td>{{ sale.Branch }}</td>
+        <td>{{ sale.Employee }}</td>
+        <td>{{ sale.sale_date }}</td>
+        <td>{{ sale.Product }}</td>
+        <td>{{ sale.Quantity }}</td>
+        <td>C$ {{ sale.price }}</td>
+        <td>C$ {{ sale.Total }}</td>
+<!--        <td class="last">-->
+<!--            <a class="link-button edit-button" href="/sale/{{sale.id}}/edit">-->
+<!--                Edit-->
+<!--            </a>-->
+<!--            <form action="/sale/{{sale.id}}" method="post">-->
+<!--                <input name="_METHOD" type="hidden" value="DELETE">-->
+<!--                <button class="submit" type="submit">Disable</button>-->
+<!--            </form>-->
+<!--        </td>-->
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/product" method="post" class="data-form">
+    <div>
+        <label><span> Product: </span>
+            <input type="text" name="product_name">
+            {% if product is empty %}
+            <div class="errors">{{ errors.product }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Category: </span>
+            <select name="categories">
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/product">Cancel</a>
+</form>
+{% endblock %}

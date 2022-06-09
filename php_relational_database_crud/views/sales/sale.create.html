@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/sale" method="post" class="data-form">
+    <div>
+        <label><span> Branch Office: </span>
+            <select name="branch">
+                {% for branch in branches %}
+                <option value="{{ branch.id }}">{{ branch.city }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label><span> Employee: </span>
+            <select name="seller">
+                {% for seller in sellers %}
+                <option value="{{ seller.id }}">{{ seller.seller_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label><span> Date: </span>
+            <input type="date" name="sale_date">
+            {% if sale_date is empty %}
+            <div class="errors">{{ errors.sale_date }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Product: </span>
+            <select name="product">
+                {% for product in products %}
+                <option value="{{ product.id }}">{{ product.product_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label><span> Quantity: </span>
+            <input type="text" name="quantity">
+            {% if quantity is empty %}
+            <div class="errors">{{ errors.quantity }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Price: </span>
+            <input type="text" name="price">
+            {% if price is empty %}
+            <div class="errors">{{ errors.price }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/sale">Cancel</a>
+</form>
+{% endblock %}

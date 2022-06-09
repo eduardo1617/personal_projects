@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/seller/create">Add Seller</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>DNI</th>
+        <th>Birth Day</th>
+        <th>Hiring Date</th>
+        <th>Work id</th>
+        <th>Phone</th>
+        <th>Branch Office</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for seller in sellers %}
+    <tr>
+        <td>{{ seller.first_name }}</td>
+        <td>{{ seller.last_name }}</td>
+        <td>{{ seller.dni }}</td>
+        <td>{{ seller.birthday }}</td>
+        <td>{{ seller.hiring_date }}</td>
+        <td>{{ seller.work_id }}</td>
+        <td>{{ seller.phone }}</td>
+        <td>{{ seller.branchName }}</td>
+        <td class="last">
+            <a class="link-button edit-button" href="/seller/{{seller.id}}/edit">
+                Edit
+            </a>
+            <form action="/seller/status/{{seller.id}}" method="post">
+                <input name="_METHOD" type="hidden" value="PATCH">
+                <button class="submit" type="submit">Disable</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

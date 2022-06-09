@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/branch/report">Back</a>
+
+<h3>{{currentBranch.Branch}}</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Seller</th>
+        <th>Product</th>
+        <th>Date</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% set totalPrice = 0 %}
+    {% for report in reports %}
+    <tr>
+        <td>{{ report.Seller }}</td>
+        <td>{{ report.product_name }}</td>
+        <td>{{ report.sale_date }}</td>
+        <td>{{ report.quantity }}</td>
+        <td>C$ {{ report.Total }}</td>
+        {% set totalPrice = totalPrice + report.Total %}
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><span>Grand Total: </span></td>
+        <td>C$ {{ totalPrice }}</td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

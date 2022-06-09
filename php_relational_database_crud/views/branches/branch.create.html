@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/branch" method="post" class="data-form">
+    <div>
+        <label><span> State: </span>
+            <input type="text" name="state">
+            {% if state is empty %}
+            <div class="errors">{{ errors.state }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> City: </span>
+            <input type="text" name="city">
+            {% if city is empty %}
+            <div class="errors">{{ errors.city }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Address: </span>
+            <input type="text" name="address">
+            {% if address is empty %}
+            <div class="errors">{{ errors.address }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <div>
+        <label><span> Phone: </span>
+            <input type="text" name="phone">
+            {% if phone is empty %}
+            <div class="errors">{{ errors.phone }}</div>
+            {% endif %}
+        </label>
+    </div>
+
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/branch">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/branch/create">Add Branch</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>State</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Phones</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for branch in branches %}
+    <tr>
+        <td>{{ branch.state }}</td>
+        <td>{{ branch.city }}</td>
+        <td>{{ branch.address }}</td>
+        <td>{{ branch.phone }}</td>
+        <td class="last">
+
+            <a class="link-button edit-button" href="/branch/{{ branch.id }}/edit">
+                Edit
+            </a>
+
+            <form action="/branch/status/{{branch.id}}" method="post">
+                <input name="_METHOD" type="hidden" value="PATCH">
+                <button class="submit" type="submit">Disable</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

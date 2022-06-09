@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/product/create">Add Product</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in products %}
+    <tr>
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.category_name }}</td>
+        <td class="last">
+            <a class="link-button edit-button" href="/product/{{product.id}}/edit">
+                Edit
+            </a>
+            <form action="/product/status/{{product.id}}" method="post">
+                <input name="_METHOD" type="hidden" value="PATCH">
+                <button class="submit" type="submit">Disable</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

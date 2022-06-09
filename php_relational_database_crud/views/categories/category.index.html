@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+
+<a class="link-button" href="/">Main Menu</a>
+<a class="link-button" href="/category/create">Add Category</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for category in categories %}
+    <tr>
+        <td>{{ category.category_name }}</td>
+        <td class="last">
+            <a class="link-button edit-button" href="/category/{{ category.id }}/edit">
+                Edit
+            </a>
+            <form action="/category/status/{{category.id}}" method="post">
+                <input name="_METHOD" type="hidden" value="PATCH">
+                <button class="submit" type="submit">Disable</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
