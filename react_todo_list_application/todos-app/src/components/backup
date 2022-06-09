@@ -1,0 +1,9 @@
+<label /*className={done ? "task-list done" : "task-list"} */>
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={handleChange} /*onClick={() => completeTask(id)}*/
+        />
+        {todo.description}-
+        {format(new Date(todo.updated_at), 'yyyy-MM-dd hh:mm')}
+      </label>
