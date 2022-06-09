@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/" method="post" class="data-form">
+    <div>
+        <label><span> First name: </span>
+            <input type="text" name="first_name">
+            {% if user.first_name is empty %}
+            <div class="errors">{{ errors.first_name }}</div>
+            {% endif %}
+        </label>
+
+    </div>
+    <div>
+        <label><span> Last name: </span>
+            <input type="text" name="last_name">
+            {% if user.first_name is empty %}
+            <div class="errors">{{ errors.last_name }}</div>
+            {% endif %}
+        </label>
+    </div>
+    <div>
+        <span>Hobbies</span>
+        {% if user.hobbies is empty %}
+        <label> Reading
+            <input
+                    type="checkbox"
+                    name="hobbies[reading]"
+                    value="reading">
+        </label>
+        <label> Cycling
+            <input
+                    type="checkbox"
+                    name="hobbies[cycling]"
+                    value="cycling">
+        </label>
+        <label> Swimming
+            <input
+                    type="checkbox"
+                    name="hobbies[swimming]"
+                    value="swimming">
+        </label>
+        <div class="errors">{{ errors.hobbies }}</div>
+        {% endif %}
+    </div>
+    <input type="submit" value="Submit">
+</form>
+
+<a class="link-button" href="/users">Users...</a>
+{% endblock %}

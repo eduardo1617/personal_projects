@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block main %}
+<form action="/users/{{id}}" method="post" class="data-form">
+    <input type="hidden" name="_METHOD" value="PATCH">
+    <div>
+        <label><span> First name: </span>
+            <input type="text" name="first_name" value="{{  user.first_name  }}">
+            {% if user.first_name is not empty %}
+            <div class="errors">{{ errors.first_name }}</div>
+            {% endif %}
+        </label>
+
+    </div>
+    <div>
+        <label><span> Last name: </span>
+            <input type="text" name="last_name" value="{{user.last_name}}">
+            {% if user.last_name is not empty %}
+            <div class="errors">{{ errors.last_name }}</div>
+            {% endif %}
+        </label>
+    </div>
+    <div>
+        <span>Hobbies</span>
+        <label> Reading
+            <input
+                    type="checkbox"
+                    name="hobbies[reading]"
+                    value="reading"
+                    {{ hobbies.reading is not empty ? 'checked' : '' }}/>
+
+        </label>
+        <label> Cycling
+            <input
+                    type="checkbox"
+                    name="hobbies[cycling]"
+                    value="cycling"
+                    {{ hobbies.cycling is not empty ? 'checked' : '' }}/>
+
+        </label>
+        <label> Swimming
+            <input
+                    type="checkbox"
+                    name="hobbies[swimming]"
+                    value="swimming"
+                    {{ hobbies.swimming is not empty ? 'checked' : '' }}/>
+
+        </label>
+    </div>
+    <input type="submit" value="Submit">
+    <a class="link-button" href="/users">Cancel</a>
+</form>
+{% endblock %}
