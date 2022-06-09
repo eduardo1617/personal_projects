@@ -1,0 +1,6 @@
+a:3:{s:10:"first_name";s:5:"Oscar";s:9:"last_name";s:6:"Molina";s:7:"hobbies";a:2:{s:7:"reading";s:7:"reading";s:7:"cycling";s:7:"cycling";}}
+a:3:{s:10:"first_name";s:7:"Geovany";s:9:"last_name";s:8:"Gonzales";s:7:"hobbies";a:2:{s:7:"reading";s:7:"reading";s:8:"swimming";s:8:"swimming";}}
+a:3:{s:10:"first_name";s:6:"Miriam";s:9:"last_name";s:6:"Vargas";s:7:"hobbies";a:1:{s:7:"reading";s:7:"reading";}}
+a:3:{s:10:"first_name";s:5:"Candy";s:9:"last_name";s:4:"Maiz";s:7:"hobbies";a:2:{s:7:"cycling";s:7:"cycling";s:8:"swimming";s:8:"swimming";}}
+a:3:{s:10:"first_name";s:5:"Erick";s:9:"last_name";s:7:"Narvaez";s:7:"hobbies";a:2:{s:7:"reading";s:7:"reading";s:7:"cycling";s:7:"cycling";}}
+a:3:{s:10:"first_name";s:4:"algo";s:9:"last_name";s:4:"jaja";s:7:"hobbies";a:1:{s:7:"cycling";s:7:"cycling";}}
